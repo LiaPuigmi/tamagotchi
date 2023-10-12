@@ -40,7 +40,6 @@ let countDown=setInterval(() => {
     media=(progressWidth+progressWidth2+progressWidth3+progressWidth4)/4;
     progressBarTotal.style.width=media+'%';
     checkColors(media, progressBarTotal);
-    console.log(media.toString());
     if(media==0){
         babyYoda.src='./imagenes/byeYoda.gif';
         clearInterval(countDownImage);
@@ -173,7 +172,6 @@ const checkColors=(width:number, barra:HTMLInputElement)=>{
 
 let intervalbutonImage=5;
 let countDownImage=setInterval(() => {
-    console.log(intervalbutonImage.toString());
     if ((intervalbutonImage < 1) && (media > 0)){
         babyYoda.src='./imagenes/Baby.png';
     }else{
