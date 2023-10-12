@@ -1,101 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="./main.js"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="main_container">
-        <div class="mini_container">
-            <div class="recuadro blueLight left top">
-                <div class="botones top">
-                    <button id="boton1" class="option_button backgroundBlueLight">
-                        <img src="./imagenes/helado.png" alt="helado">
-                    </button>
-                    <button id="boton2" class="option_button backgroundBlueLight">
-                        <img src="./imagenes/pizza.png" alt="pizza">
-                    </button>
-                    <button id="boton3" class="option_button backgroundBlueLight">
-                        <img src="./imagenes/brocoli.png" alt="verdura">
-                    </button>
-                </div>
-                <div class="linear-activity">
-                    <div class="determinate"></div>
-                </div>
-                <div class="enunciado letras transLeft">
-                    <span id="lleno" value=""></span> % Llenito
-                </div>
-            </div>
-            <div class="recuadro blueDark right top">
-                <div class="botones down">
-                    <button id="boton4" class="option_button backgroundBlueDark">
-                        <img src="./imagenes/play.jpg" alt="play">
-                    </button>
-                    <button id="boton5" class="option_button backgroundBlueDark">
-                        <img src="./imagenes/pelota.png" alt="pelota">
-                    </button>
-                    <button id="boton6" class="option_button backgroundBlueDark">
-                        <img src="./imagenes/jmesa.png" alt="jmesa">
-                    </button>
-                </div>
-                <div class="linear-activity">
-                    <div class="determinate"></div>
-                </div>
-                <div class="enunciado letras down transRight">
-                    <span id="satisfecho" value=""></span> % Satisfecho
-                </div>
-            </div>
+      <div class="mini_container">
+        <div class="recuadro blueLight left top">
+          <div class="botones top">
+            <button id="boton1" class="option_button backgroundBlueLight">
+              <img src="./imagenes/helado.png" alt="helado" />
+            </button>
+            <button id="boton2" class="option_button backgroundBlueLight">
+              <img src="./imagenes/pizza.png" alt="pizza" />
+            </button>
+            <button id="boton3" class="option_button backgroundBlueLight">
+              <img src="./imagenes/brocoli.png" alt="verdura" />
+            </button>
+          </div>
+          <div class="linear-activity">
+            <div class="determinate" id="llenito"></div>
+          </div>
+          <div class="enunciado letras transLeft">
+            <span id="lleno" value="">100</span> % Llenito
+          </div>
         </div>
-        <div class="mini_container">
-            <div class="recuadro purpleDark down left">
-                <div class="botones top">
-                    <button id="boton7" class="option_button backgroundPurpleDark">
-                        <img src="./imagenes/cardio.jpg" alt="cardio">
-                    </button>
-                    <button id="boton8" class="option_button backgroundPurpleDark">
-                        <img src="./imagenes/pesas.png" alt="gym">
-                    </button>
-                    <button id="boton9" class="option_button backgroundPurpleDark">
-                        <img src="./imagenes/muay_thai.png" alt="muay">
-                    </button>
-                </div>
-                <div class="linear-activity">
-                    <div class="determinate"></div>
-                </div>
-                <div class="enunciado letras transLeft">
-                    <span id="endorfinas" value=""></span> % Serotonina
-                </div>
-            </div>
-            <div class="recuadro purpleLight down right">
-                <div class="botones down">
-                    <button id="boton10" class="option_button backgroundPurpleLight">
-                        <img src="./imagenes/dormir.png" alt="dormir">
-                    </button>
-                    <button id="boton11" class="option_button backgroundPurpleLight">
-                        <img src="./imagenes/siesta.png" alt="siesta">
-                    </button>
-                    <button id="boton12" class="option_button backgroundPurpleLight">
-                        <img src="./imagenes/relax.png" alt="series">
-                    </button>
-                </div>
-                <div class="linear-activity">
-                    <div class="determinate"></div>
-                </div>
-                <div class="enunciado letras down transRight">
-                    <span id="descanso" value=""></span> % Descansadito
-                </div>
-            </div>
+        <div class="recuadro blueDark right top">
+          <div class="botones down">
+            <button id="boton4" class="option_button backgroundBlueDark">
+              <img src="./imagenes/play.jpg" alt="play" />
+            </button>
+            <button id="boton5" class="option_button backgroundBlueDark">
+              <img src="./imagenes/pelota.png" alt="pelota" />
+            </button>
+            <button id="boton6" class="option_button backgroundBlueDark">
+              <img src="./imagenes/jmesa.png" alt="jmesa" />
+            </button>
+          </div>
+          <div class="linear-activity">
+            <div class="determinate" id="juego"></div>
+          </div>
+          <div class="enunciado letras down transRight">
+            <span id="satisfecho" value="">100</span> % Satisfecho
+          </div>
         </div>
+      </div>
+      <div class="mini_container">
+        <div class="recuadro purpleDark down left">
+          <div class="botones top">
+            <button id="boton7" class="option_button backgroundPurpleDark">
+              <img src="./imagenes/cardio.jpg" alt="cardio" />
+            </button>
+            <button id="boton8" class="option_button backgroundPurpleDark">
+              <img src="./imagenes/pesas.png" alt="gym" />
+            </button>
+            <button id="boton9" class="option_button backgroundPurpleDark">
+              <img src="./imagenes/muay_thai.png" alt="muay" />
+            </button>
+          </div>
+          <div class="linear-activity">
+            <div class="determinate" id="ejercicio"></div>
+          </div>
+          <div class="enunciado letras transLeft">
+            <span id="serotonina" value="">100</span> % Serotonina
+          </div>
+        </div>
+        <div class="recuadro purpleLight down right">
+          <div class="botones down">
+            <button id="boton10" class="option_button backgroundPurpleLight">
+              <img src="./imagenes/dormir.png" alt="dormir" />
+            </button>
+            <button id="boton11" class="option_button backgroundPurpleLight">
+              <img src="./imagenes/siesta.png" alt="siesta" />
+            </button>
+            <button id="boton12" class="option_button backgroundPurpleLight">
+              <img src="./imagenes/relax.png" alt="series" />
+            </button>
+          </div>
+          <div class="linear-activity">
+            <div class="determinate" id="relax"></div>
+          </div>
+          <div class="enunciado letras down transRight">
+            <span id="descanso" value="">100</span> % Descansadito
+          </div>
+        </div>
+      </div>
     </div>
     <div class="gif">
-        <img class="avatar" src="./imagenes/Baby.png" alt="baby">
-        <div class="linear-activity">
-            <div class="determinate"></div>
-        </div>
-        <div class="letras">Yo estoy a tu cargo? 😱</div>
+      <img class="avatar" id="bebito" src="./imagenes/Baby.png" alt="baby" />
+      <div class="linear-activity">
+        <div class="determinate" id="progresoTotal"></div>
+      </div>
+      <div class="letras">Yo estoy a tu cargo? 😱</div>
     </div>
-</body>
+  </body>
 </html>
