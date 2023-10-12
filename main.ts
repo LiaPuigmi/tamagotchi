@@ -397,7 +397,7 @@ cardio.addEventListener('click', () =>{
 
 
 pesas.addEventListener('click', () =>{
-    if(progressWidth3>95){
+    if(progressWidth3>90){
         progressWidth3=100;
     }else{
         progressWidth3+=10;
@@ -426,7 +426,7 @@ pesas.addEventListener('click', () =>{
 });
 
 boxa.addEventListener('click', () =>{
-    if(progressWidth3>95){
+    if(progressWidth3>85){
         progressWidth3=100;
     }else{
         progressWidth3+=15;
@@ -488,7 +488,7 @@ dormir.addEventListener('click', () =>{
 
 
 siesta.addEventListener('click', () =>{
-    if(progressWidth4>95){
+    if(progressWidth4>90){
         progressWidth4=100;
     }else{
         progressWidth4+=10;
@@ -519,7 +519,7 @@ siesta.addEventListener('click', () =>{
 
 
 relax.addEventListener('click', () =>{
-    if(progressWidth4>95){
+    if(progressWidth4>85){
         progressWidth4=100;
     }else{
         progressWidth4+=15;

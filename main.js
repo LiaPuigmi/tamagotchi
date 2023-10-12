@@ -333,7 +333,7 @@ cardio.addEventListener('click', () => {
     }, 1000);
 });
 pesas.addEventListener('click', () => {
-    if (progressWidth3 > 95) {
+    if (progressWidth3 > 90) {
         progressWidth3 = 100;
     }
     else {
@@ -358,7 +358,7 @@ pesas.addEventListener('click', () => {
     }, 1000);
 });
 boxa.addEventListener('click', () => {
-    if (progressWidth3 > 95) {
+    if (progressWidth3 > 85) {
         progressWidth3 = 100;
     }
     else {
@@ -408,7 +408,7 @@ dormir.addEventListener('click', () => {
     }, 1000);
 });
 siesta.addEventListener('click', () => {
-    if (progressWidth4 > 95) {
+    if (progressWidth4 > 90) {
         progressWidth4 = 100;
     }
     else {
@@ -433,7 +433,7 @@ siesta.addEventListener('click', () => {
     }, 1000);
 });
 relax.addEventListener('click', () => {
-    if (progressWidth4 > 95) {
+    if (progressWidth4 > 85) {
         progressWidth4 = 100;
     }
     else {
