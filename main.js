@@ -150,7 +150,7 @@ const checkColors = (width, barra) => {
 let intervalbutonImage = 5;
 let countDownImage = setInterval(() => {
     console.log(intervalbutonImage.toString());
-    if ((intervalbutonImage < 1) && (media == 0)) {
+    if ((intervalbutonImage < 1) && (media > 0)) {
         babyYoda.src = './imagenes/Baby.png';
     }
     else {
