@@ -292,10 +292,11 @@ function checkColorsMusic(width:number, source:HTMLAudioElement){
 
     }else if(width<=30 && change==3){
         source.src="./Audio/thirdAudio.mp3";
-        source.volume=0.05;
+        source.volume=0.1;
         source.load();
         source.play();
         if(!firstTime){
+            
             change=2;
         }
     }
