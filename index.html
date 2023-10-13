@@ -25,8 +25,8 @@
           <div class="linear-activity">
             <div class="determinate" id="llenito"></div>
           </div>
-          <div class="enunciado letras transLeft">
-            <span id="lleno" value="">100</span> % Llenito
+          <div class="enunciado letras transLeft" id="letrasLleno">
+            <span id="lleno" value=""></span> % Llenito
           </div>
         </div>
         <div class="recuadro blueDark right top">
@@ -44,8 +44,8 @@
           <div class="linear-activity">
             <div class="determinate" id="juego"></div>
           </div>
-          <div class="enunciado letras down transRight">
-            <span id="satisfecho" value="">100</span> % Satisfecho
+          <div class="enunciado letras down transRight" id="letrasSatisfecho">
+            <span id="satisfecho" value=""></span> % Satisfecho
           </div>
         </div>
       </div>
@@ -65,8 +65,8 @@
           <div class="linear-activity">
             <div class="determinate" id="ejercicio"></div>
           </div>
-          <div class="enunciado letras transLeft">
-            <span id="serotonina" value="">100</span> % Serotonina
+          <div class="enunciado letras transLeft" id="letrasSerotonina">
+            <span id="serotonina" value=""></span> % Serotonina
           </div>
         </div>
         <div class="recuadro purpleLight down right">
@@ -84,18 +84,22 @@
           <div class="linear-activity">
             <div class="determinate" id="relax"></div>
           </div>
-          <div class="enunciado letras down transRight">
-            <span id="descanso" value="">100</span> % Relajao
+          <div class="enunciado letras down transRight" id="letrasRelajao">
+            <span id="descanso" value=""></span> % Relajao
           </div>
         </div>
       </div>
     </div>
     <div class="gif">
+        <div class="crono">
+            <h4><time>00:00:00</time></h4>
+        </div>
       <img class="avatar" id="bebito" src="./imagenes/Baby.png" alt="baby" />
       <div class="linear-activity">
         <div class="determinate" id="progresoTotal"></div>
       </div>
-      <div class="letras">Yo estoy a tu cargo? 😱</div>
+      <div class="letras" id="letras">Yo estoy a tu cargo? 😱</div>
+      <button id="reset"><div class="letras">RESET</div></button>
     </div>
   </body>
 </html>

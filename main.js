@@ -1,45 +1,67 @@
 "use strict";
 let progressBar = document.getElementById('llenito');
 let numLleno = document.getElementById('lleno');
+let letrasLleno = document.getElementById('letrasLleno');
 const helado = document.getElementById('boton1');
 const pizza = document.getElementById('boton2');
 const brocoli = document.getElementById('boton3');
 let progressBar2 = document.getElementById('juego');
 let numSatisfecho = document.getElementById('satisfecho');
+let letrasSatisfecho = document.getElementById('letrasSatisfecho');
 const play = document.getElementById('boton4');
 const ball = document.getElementById('boton5');
 const cartas = document.getElementById('boton6');
 let progressBar3 = document.getElementById('ejercicio');
 let numSerotonina = document.getElementById('serotonina');
+let letrasSerotonina = document.getElementById('letrasSerotonina');
 const cardio = document.getElementById('boton7');
 const pesas = document.getElementById('boton8');
 const boxa = document.getElementById('boton9');
 let progressBar4 = document.getElementById('relax');
 let numDescanso = document.getElementById('descanso');
+let letrasRelajao = document.getElementById('letrasRelajao');
 const dormir = document.getElementById('boton10');
 const siesta = document.getElementById('boton11');
 const relax = document.getElementById('boton12');
 let babyYoda = document.getElementById('bebito');
-let progressWidth = 100;
-let progressWidth2 = 100;
-let progressWidth3 = 100;
-let progressWidth4 = 100;
+let progressWidth = randomBar();
+let progressWidth2 = randomBar();
+let progressWidth3 = randomBar();
+let progressWidth4 = randomBar();
 let progressBarTotal = document.getElementById('progresoTotal');
+let letras = document.getElementById('letras');
+let reset = document.getElementById('reset');
+let h4 = document.getElementsByTagName('h4')[0];
+let sec = 0;
+let min = 0;
+let hrs = 0;
+let t;
 let media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
 progressBarTotal.style.width = media + '%';
+function randomBar() {
+    let x = Math.floor((Math.random() * 40) + 41);
+    return x;
+}
+;
+timer();
 let countDown = setInterval(() => {
     progressWidth--;
     media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
     progressBarTotal.style.width = media + '%';
     checkColors(media, progressBarTotal);
+    checkColorsTimer(media, h4);
     if (media == 0) {
         babyYoda.src = './imagenes/byeYoda.gif';
         clearInterval(countDownImage);
+        clearTimeout(t);
+        letras.style.display = 'none';
+        reset.style.display = 'flex';
     }
     if (progressWidth > 0) {
         progressBar.style.width = progressWidth + '%';
         numLleno.innerHTML = progressWidth.toString();
         checkColors(progressWidth, progressBar);
+        checkColorsTimer(progressWidth, letrasLleno);
     }
     else {
         clearInterval(countDown);
@@ -59,14 +81,19 @@ let countDown2 = setInterval(() => {
     media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
     progressBarTotal.style.width = media + '%';
     checkColors(media, progressBarTotal);
+    checkColorsTimer(media, h4);
     if (media == 0) {
         babyYoda.src = './imagenes/byeYoda.gif';
         clearInterval(countDownImage);
+        clearTimeout(t);
+        letras.style.display = 'none';
+        reset.style.display = 'flex';
     }
     if (progressWidth2 > 0) {
         progressBar2.style.width = progressWidth2 + '%';
         numSatisfecho.innerHTML = progressWidth2.toString();
         checkColors(progressWidth2, progressBar2);
+        checkColorsTimer(progressWidth2, letrasSatisfecho);
     }
     else {
         clearInterval(countDown2);
@@ -86,14 +113,19 @@ let countDown3 = setInterval(() => {
     media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
     progressBarTotal.style.width = media + '%';
     checkColors(media, progressBarTotal);
+    checkColorsTimer(media, h4);
     if (media == 0) {
         babyYoda.src = './imagenes/byeYoda.gif';
         clearInterval(countDownImage);
+        clearTimeout(t);
+        letras.style.display = 'none';
+        reset.style.display = 'flex';
     }
     if (progressWidth3 > 0) {
         progressBar3.style.width = progressWidth3 + '%';
         numSerotonina.innerHTML = progressWidth3.toString();
         checkColors(progressWidth3, progressBar3);
+        checkColorsTimer(progressWidth3, letrasSerotonina);
     }
     else {
         clearInterval(countDown3);
@@ -113,14 +145,19 @@ let countDown4 = setInterval(() => {
     media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
     progressBarTotal.style.width = media + '%';
     checkColors(media, progressBarTotal);
+    checkColorsTimer(media, h4);
     if (media == 0) {
         babyYoda.src = './imagenes/byeYoda.gif';
         clearInterval(countDownImage);
+        clearTimeout(t);
+        letras.style.display = 'none';
+        reset.style.display = 'flex';
     }
     if (progressWidth4 > 0) {
         progressBar4.style.width = progressWidth4 + '%';
         numDescanso.innerHTML = progressWidth4.toString();
         checkColors(progressWidth4, progressBar4);
+        checkColorsTimer(progressWidth4, letrasRelajao);
     }
     else {
         clearInterval(countDown4);
@@ -146,6 +183,17 @@ const checkColors = (width, barra) => {
         barra.style.background = 'red';
     }
 };
+const checkColorsTimer = (width, letters) => {
+    if (width > 60) {
+        letters.style.color = '#12ec49';
+    }
+    else if (width > 30) {
+        letters.style.color = 'yellow';
+    }
+    else {
+        letters.style.color = 'red';
+    }
+};
 let intervalbutonImage = 5;
 let countDownImage = setInterval(() => {
     if ((intervalbutonImage < 1) && (media > 0)) {
@@ -166,6 +214,7 @@ helado.addEventListener('click', () => {
     numLleno.innerHTML = progressWidth.toString();
     let intervalbuton = 5;
     helado.classList.add('option_button2');
+    helado.classList.remove('option_button');
     babyYoda.src = './imagenes/heladoYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -176,6 +225,7 @@ helado.addEventListener('click', () => {
         else {
             helado.disabled = false;
             helado.classList.remove('option_button2');
+            helado.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -191,6 +241,7 @@ pizza.addEventListener('click', () => {
     numLleno.innerHTML = progressWidth.toString();
     let intervalbuton = 10;
     pizza.classList.add('option_button2');
+    pizza.classList.remove('option_button');
     babyYoda.src = './imagenes/pizzaYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -201,6 +252,7 @@ pizza.addEventListener('click', () => {
         else {
             pizza.disabled = false;
             pizza.classList.remove('option_button2');
+            pizza.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -216,6 +268,7 @@ brocoli.addEventListener('click', () => {
     numLleno.innerHTML = progressWidth.toString();
     let intervalbuton = 15;
     brocoli.classList.add('option_button2');
+    brocoli.classList.remove('option_button');
     babyYoda.src = './imagenes/brocoliYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -226,6 +279,7 @@ brocoli.addEventListener('click', () => {
         else {
             brocoli.disabled = false;
             brocoli.classList.remove('option_button2');
+            brocoli.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -241,6 +295,7 @@ play.addEventListener('click', () => {
     numSatisfecho.innerHTML = progressWidth2.toString();
     let intervalbuton = 5;
     play.classList.add('option_button2');
+    play.classList.remove('option_button');
     babyYoda.src = './imagenes/playYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -251,6 +306,7 @@ play.addEventListener('click', () => {
         else {
             play.disabled = false;
             play.classList.remove('option_button2');
+            play.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -266,6 +322,7 @@ ball.addEventListener('click', () => {
     numSatisfecho.innerHTML = progressWidth2.toString();
     let intervalbuton = 10;
     ball.classList.add('option_button2');
+    ball.classList.remove('option_button');
     babyYoda.src = './imagenes/ballYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -276,6 +333,7 @@ ball.addEventListener('click', () => {
         else {
             ball.disabled = false;
             ball.classList.remove('option_button2');
+            ball.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -291,6 +349,7 @@ cartas.addEventListener('click', () => {
     numSatisfecho.innerHTML = progressWidth2.toString();
     let intervalbuton = 15;
     cartas.classList.add('option_button2');
+    cartas.classList.remove('option_button');
     babyYoda.src = './imagenes/cardsYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -301,6 +360,7 @@ cartas.addEventListener('click', () => {
         else {
             cartas.disabled = false;
             cartas.classList.remove('option_button2');
+            cartas.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -316,6 +376,7 @@ cardio.addEventListener('click', () => {
     numSerotonina.innerHTML = progressWidth3.toString();
     let intervalbuton = 5;
     cardio.classList.add('option_button2');
+    cardio.classList.remove('option_button');
     babyYoda.src = './imagenes/cardioYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -326,6 +387,7 @@ cardio.addEventListener('click', () => {
         else {
             cardio.disabled = false;
             cardio.classList.remove('option_button2');
+            cardio.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -343,6 +405,7 @@ pesas.addEventListener('click', () => {
     intervalbutonImage = 5;
     let intervalbuton = 10;
     pesas.classList.add('option_button2');
+    pesas.classList.remove('option_button');
     let countDown = setInterval(() => {
         intervalbuton--;
         if (intervalbuton > 0) {
@@ -351,6 +414,7 @@ pesas.addEventListener('click', () => {
         else {
             pesas.disabled = false;
             pesas.classList.remove('option_button2');
+            pesas.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -366,6 +430,7 @@ boxa.addEventListener('click', () => {
     numSerotonina.innerHTML = progressWidth3.toString();
     let intervalbuton = 15;
     boxa.classList.add('option_button2');
+    boxa.classList.remove('option_button');
     babyYoda.src = './imagenes/boxaYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -376,6 +441,7 @@ boxa.addEventListener('click', () => {
         else {
             boxa.disabled = false;
             boxa.classList.remove('option_button2');
+            boxa.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -391,6 +457,7 @@ dormir.addEventListener('click', () => {
     numDescanso.innerHTML = progressWidth4.toString();
     let intervalbuton = 5;
     dormir.classList.add('option_button2');
+    dormir.classList.remove('option_button');
     babyYoda.src = './imagenes/sleepYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -401,6 +468,7 @@ dormir.addEventListener('click', () => {
         else {
             dormir.disabled = false;
             dormir.classList.remove('option_button2');
+            dormir.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -416,6 +484,7 @@ siesta.addEventListener('click', () => {
     numDescanso.innerHTML = progressWidth4.toString();
     let intervalbuton = 10;
     siesta.classList.add('option_button2');
+    siesta.classList.remove('option_button');
     babyYoda.src = './imagenes/napYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -426,6 +495,7 @@ siesta.addEventListener('click', () => {
         else {
             siesta.disabled = false;
             siesta.classList.remove('option_button2');
+            siesta.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
@@ -441,6 +511,7 @@ relax.addEventListener('click', () => {
     numDescanso.innerHTML = progressWidth4.toString();
     let intervalbuton = 15;
     relax.classList.add('option_button2');
+    relax.classList.remove('option_button');
     babyYoda.src = './imagenes/relaxYoda.gif';
     intervalbutonImage = 5;
     let countDown = setInterval(() => {
@@ -451,7 +522,32 @@ relax.addEventListener('click', () => {
         else {
             relax.disabled = false;
             relax.classList.remove('option_button2');
+            relax.classList.add('option_button');
             clearInterval(countDown);
         }
     }, 1000);
 });
+function tick() {
+    sec++;
+    if (sec >= 60) {
+        sec = 0;
+        min++;
+        if (min >= 60) {
+            min = 0;
+            hrs++;
+        }
+    }
+}
+function add() {
+    tick();
+    h4.textContent = (hrs > 9 ? hrs : "0" + hrs)
+        + ":" + (min > 9 ? min : "0" + min)
+        + ":" + (sec > 9 ? sec : "0" + sec);
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 1000);
+}
+reset.onclick = function () {
+    window.location.reload();
+};
