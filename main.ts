@@ -44,7 +44,34 @@ let min = 0;
 let hrs = 0;
 let t:number;
 
+let htmlaudio: HTMLAudioElement = new Audio('./Audio/firstAudio.mp3');
+htmlaudio.autoplay=true;
+htmlaudio.controls=false;
+htmlaudio.loop=true;
+document.body.appendChild(htmlaudio);
+
+let audioClick: HTMLAudioElement = new Audio('./Audio/click.mp3');
+audioClick.autoplay=false;
+audioClick.controls=false;
+audioClick.loop=false;
+document.body.appendChild(audioClick);
+
 let media=(progressWidth+progressWidth2+progressWidth3+progressWidth4)/4;
+
+let change:number;
+let welcome=true;
+if(welcome){
+    if(media>60){
+        change=1;
+    }else if(media>30){
+        change=2;
+    }else{
+        change=3;
+    }
+welcome=false;
+}
+
+
 
 progressBarTotal.style.width=media+'%';
 
@@ -54,6 +81,7 @@ function randomBar(){
 };
 
 timer();
+
 let countDown=setInterval(() => {
     progressWidth--;
     media=(progressWidth+progressWidth2+progressWidth3+progressWidth4)/4;
@@ -66,6 +94,11 @@ let countDown=setInterval(() => {
         clearTimeout(t);
         letras.style.display='none';
         reset.style.display='flex';
+        htmlaudio.src="./Audio/gameOver.wav";
+        htmlaudio.volume = 0.25; 
+        htmlaudio.load();
+        htmlaudio.play();
+        htmlaudio.loop=false;
 
     }
     if (progressWidth>0){
@@ -102,7 +135,11 @@ let countDown2=setInterval(() => {
         clearTimeout(t);
         letras.style.display='none';
         reset.style.display='flex';
-
+        htmlaudio.src="./Audio/gameOver.wav";
+        htmlaudio.volume = 0.25; 
+        htmlaudio.load();
+        htmlaudio.play();
+        htmlaudio.loop=false;
     }
     if (progressWidth2>0){
         progressBar2.style.width=progressWidth2+'%';
@@ -138,6 +175,11 @@ let countDown3=setInterval(() => {
         clearTimeout(t);
         letras.style.display='none';
         reset.style.display='flex';
+        htmlaudio.src="./Audio/gameOver.wav";
+        htmlaudio.volume = 0.25; 
+        htmlaudio.load();
+        htmlaudio.play();
+        htmlaudio.loop=false;
 
     }
     if (progressWidth3>0){
@@ -173,6 +215,11 @@ let countDown4=setInterval(() => {
         clearTimeout(t);
         letras.style.display='none';
         reset.style.display='flex';
+        htmlaudio.src="./Audio/gameOver.wav";
+        htmlaudio.volume = 0.25; 
+        htmlaudio.load();
+        htmlaudio.play();
+        htmlaudio.loop=false;
     }
     if (progressWidth4>0){
         progressBar4.style.width=progressWidth4+'%';
@@ -198,7 +245,7 @@ let countDown4=setInterval(() => {
 const checkColors=(width:number, barra:HTMLInputElement)=>{
     if(width>60){
         barra.style.background='#12ec49';
-    }else if(width>30){
+    }else if(width>30 && width<=60){
         barra.style.background='yellow';
 
     }else{
@@ -209,11 +256,38 @@ const checkColors=(width:number, barra:HTMLInputElement)=>{
 const checkColorsTimer=(width:number, letters:HTMLInputElement)=>{
     if(width>60){
         letters.style.color='#12ec49';
-    }else if(width>30){
+    }else if(width>30 && width<=60){
         letters.style.color='yellow';
 
     }else{
         letters.style.color='red';
+    }
+    
+};
+
+function checkColorsMusic(width:number, source:HTMLAudioElement){
+    if(width>60 && (change==1 || change==3)){
+        source.src="./Audio/firstAudio.mp3";
+        source.volume = 0.25; 
+        source.load();
+        source.play();
+        change=2
+        console.log('entra1');
+    }else if((width>30 && width<=60) && change==2){
+        source.src="./Audio/secondAudio.mp3";
+        source.volume=0.05;
+        source.load();
+        source.play();
+        change=3;
+        console.log('entra2');
+
+    }else if(width<=30 && change==3){
+        source.src="./Audio/thirdAudio.mp3";
+        source.volume=0.05;
+        source.load();
+        source.play();
+        change=2;
+        console.log('entra3');
     }
 };
 
@@ -226,7 +300,6 @@ let countDownImage=setInterval(() => {
     }
 
 }, 1000);
-
 
 helado.addEventListener('click', () =>{
     if(progressWidth>95){
@@ -241,6 +314,8 @@ helado.addEventListener('click', () =>{
     helado.classList.add('option_button2');
     helado.classList.remove('option_button');
     babyYoda.src='./imagenes/heladoYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -273,6 +348,8 @@ pizza.addEventListener('click', () =>{
     pizza.classList.add('option_button2');
     pizza.classList.remove('option_button');
     babyYoda.src='./imagenes/pizzaYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -306,6 +383,8 @@ brocoli.addEventListener('click', () =>{
     brocoli.classList.add('option_button2');
     brocoli.classList.remove('option_button');
     babyYoda.src='./imagenes/brocoliYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -338,6 +417,8 @@ play.addEventListener('click', () =>{
     play.classList.add('option_button2');
     play.classList.remove('option_button');
     babyYoda.src='./imagenes/playYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -371,6 +452,8 @@ ball.addEventListener('click', () =>{
     ball.classList.add('option_button2');
     ball.classList.remove('option_button');
     babyYoda.src='./imagenes/ballYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -403,6 +486,8 @@ cartas.addEventListener('click', () =>{
     cartas.classList.add('option_button2');
     cartas.classList.remove('option_button');
     babyYoda.src='./imagenes/cardsYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -436,6 +521,8 @@ cardio.addEventListener('click', () =>{
     cardio.classList.remove('option_button');
 
     babyYoda.src='./imagenes/cardioYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -465,6 +552,8 @@ pesas.addEventListener('click', () =>{
     progressBar3.style.width=(progressWidth3)+'%';
     numSerotonina.innerHTML=progressWidth3.toString();
     babyYoda.src='./imagenes/pesasYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let intervalbuton=10;
     pesas.classList.add('option_button2');
@@ -503,6 +592,8 @@ boxa.addEventListener('click', () =>{
     boxa.classList.remove('option_button');
 
     babyYoda.src='./imagenes/boxaYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -536,6 +627,8 @@ dormir.addEventListener('click', () =>{
     dormir.classList.add('option_button2');
     dormir.classList.remove('option_button');
     babyYoda.src='./imagenes/sleepYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -569,6 +662,8 @@ siesta.addEventListener('click', () =>{
     siesta.classList.add('option_button2');
     siesta.classList.remove('option_button');
     babyYoda.src='./imagenes/napYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -603,6 +698,8 @@ relax.addEventListener('click', () =>{
     relax.classList.remove('option_button');
 
     babyYoda.src='./imagenes/relaxYoda.gif';
+    audioClick.load();
+    audioClick.play();
     intervalbutonImage=5;
     let countDown=setInterval(() => {
         intervalbuton--;
@@ -644,6 +741,9 @@ function add() {
 }
 function timer() {
     t = setTimeout(add, 1000);
+    checkColorsMusic(media,htmlaudio);
+    console.log(media.toString());
+    console.log(change.toString());
 }
 
 reset.onclick = function() {
