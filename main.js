@@ -37,6 +37,7 @@ let min = 0;
 let hrs = 0;
 let t;
 let htmlaudio = new Audio('./Audio/firstAudio.mp3');
+htmlaudio.autoplay = false;
 htmlaudio.controls = false;
 htmlaudio.loop = true;
 document.body.appendChild(htmlaudio);
@@ -48,7 +49,6 @@ document.body.appendChild(audioClick);
 let media = (progressWidth + progressWidth2 + progressWidth3 + progressWidth4) / 4;
 let change;
 let welcome = true;
-let firstTime = true;
 if (welcome) {
     if (media > 60) {
         change = 1;
@@ -61,9 +61,6 @@ if (welcome) {
     }
     welcome = false;
 }
-document.addEventListener('click', () => {
-    firstTime = false;
-});
 progressBarTotal.style.width = media + '%';
 function randomBar() {
     let x = Math.floor((Math.random() * 40) + 41);
@@ -247,27 +244,21 @@ function checkColorsMusic(width, source) {
         source.volume = 0.25;
         source.load();
         source.play();
-        if (!firstTime) {
-            change = 2;
-        }
+        change = 2;
     }
     else if ((width > 30 && width <= 60) && change == 2) {
         source.src = "./Audio/secondAudio.mp3";
         source.volume = 0.05;
         source.load();
         source.play();
-        if (!firstTime) {
-            change = 3;
-        }
+        change = 3;
     }
     else if (width <= 30 && change == 3) {
         source.src = "./Audio/thirdAudio.mp3";
         source.volume = 0.1;
         source.load();
         source.play();
-        if (!firstTime) {
-            change = 2;
-        }
+        change = 2;
     }
 }
 ;
