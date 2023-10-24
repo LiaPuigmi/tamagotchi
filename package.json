@@ -1,7 +1,6 @@
 {
   "name": "tamagotchi",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "http-server -p 8436"
@@ -12,6 +11,8 @@
     "http-server": "^14.1.1"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+    "normalize.css": "^8.0.1",
+    "ts-node": "^10.9.1"
+  },
+  "description": ""
 }
